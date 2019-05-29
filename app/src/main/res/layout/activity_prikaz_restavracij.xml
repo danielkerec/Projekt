@@ -18,11 +18,25 @@
         app:titleTextAppearance="@style/toolbar"
         app:title="Restavracije"
         app:titleTextColor="@color/white"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        android:theme="@style/toolbar_icon"
         app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:navigationIcon="@drawable/ic_utensils"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
+        android:paddingLeft="10dp"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_prikaz_restavracij"
+        android:layout_width="match_parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_prikaz_restavracij"
+        android:layout_height="match_parent" />
 
 </android.support.constraint.ConstraintLayout>

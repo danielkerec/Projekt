@@ -12,4 +12,8 @@
         <item name="android:textSize">25sp</item>
     </style>
 
+    <style name="toolbar_icon">
+        <item name="android:tint">#FFFFFF</item>
+    </style>
+
 </resources>
