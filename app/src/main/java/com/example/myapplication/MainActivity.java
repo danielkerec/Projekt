@@ -9,6 +9,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     Button prikaziRestavracije;
+    Button upravljajRestavracije;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +17,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         prikaziRestavracije = (Button) findViewById(R.id.prikazi_restavracije);
+        upravljajRestavracije = (Button) findViewById(R.id.dodaj_restavracijo);
+
+        upravljajRestavracije.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, Upravljanje_restavracij.class));
+            }
+        });
 
         prikaziRestavracije.setOnClickListener(new View.OnClickListener() {
             @Override
