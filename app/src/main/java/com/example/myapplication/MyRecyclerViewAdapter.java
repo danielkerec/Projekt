@@ -15,11 +15,13 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
 
+
     // data is passed into the constructor
     MyRecyclerViewAdapter(Context context, List<String> data) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
     }
+
 
     // inflates the row layout from xml when needed
     @Override
@@ -56,6 +58,8 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         public void onClick(View view) {
             if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
         }
+
+
     }
 
     // convenience method for getting data at click position
@@ -72,4 +76,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     public interface ItemClickListener {
         void onItemClick(View view, int position);
     }
+
+
+
 }

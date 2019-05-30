@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,6 +15,8 @@ import java.util.List;
 public class Prikaz_restavracij extends AppCompatActivity implements MyRecyclerViewAdapter.ItemClickListener {
 
     MyRecyclerViewAdapter adapter;
+    RecyclerView rcv;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,10 @@ public class Prikaz_restavracij extends AppCompatActivity implements MyRecyclerV
 
     @Override
     public void onItemClick(View view, int position){
-        Toast.makeText(this, "Kliknil" + adapter.getItem(position) + " stevilo " + position, Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(getBaseContext(), Brisanje_restavracij.class);
+            intent.putExtra("EXTRA_NAME", adapter.getItem(position));
+            startActivity(intent);
     }
+
 }

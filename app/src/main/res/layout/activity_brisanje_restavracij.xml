@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Prikaz_restavracij"
+    tools:context=".Brisanje_restavracij"
     android:background="@color/background">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar_prikaz_restavracij"
+        android:id="@+id/toolbar_urejanje_restavracij"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_marginTop="0dp"
@@ -16,30 +16,38 @@
         android:background="@color/background"
         android:elevation="4dp"
         app:titleTextAppearance="@style/toolbar"
-        app:title="Restavracije"
+        app:title="Urejanje restavracije"
         app:titleTextColor="@color/white"
         android:theme="@style/toolbar_icon"
         app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:navigationIcon="@drawable/ic_utensils"
+        app:navigationIcon="@drawable/ic_edit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         android:paddingLeft="10dp"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_prikaz_restavracij"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <EditText
+        android:id="@+id/edit_ime_restavracije"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:backgroundTint="@color/background"
-        android:longClickable="true"
-        android:paddingTop="50dp"
+        android:hint="Vnesi ime restavracije"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="24dp"
+        android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_prikaz_restavracij"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_urejanje_restavracij"
+        app:layout_constraintVertical_bias="0.14" />
 
 </android.support.constraint.ConstraintLayout>
