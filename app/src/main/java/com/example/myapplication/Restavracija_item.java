@@ -21,4 +21,9 @@ public class Restavracija_item {
         return naslov;
     }
 
+    @Override
+    public String toString(){
+        return "Ime: " + ime + " naslov: " + naslov;
+    }
+
 }

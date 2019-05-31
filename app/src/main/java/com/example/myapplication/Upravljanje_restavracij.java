@@ -12,9 +12,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 import static com.example.myapplication.Prikaz_restavracij.restavracije;
@@ -37,15 +39,18 @@ public class Upravljanje_restavracij extends AppCompatActivity {
         final SharedPreferences sp = getSharedPreferences("restavracije", MODE_PRIVATE);
 
         list = new ArrayList<>();
-        MyRecyclerViewAdapter app;
+        MyApplication app;
 
         shrani = (Button) findViewById(R.id.upravljanje_potrdi);
         naslov = (EditText) findViewById(R.id.naslov_restavracije);
         ime = (EditText) findViewById(R.id.ime_restavracije);
 
+
         shrani.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 naslov.getText().toString();
                 ime.getText().toString();
 
@@ -55,6 +60,9 @@ public class Upravljanje_restavracij extends AppCompatActivity {
                 }
                 else{
                     restavracije.add(new Restavracija_item(ime.getText().toString(), naslov.getText().toString()));
+
+                    saveData();
+
 /*
                     SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
@@ -79,5 +87,18 @@ public class Upravljanje_restavracij extends AppCompatActivity {
             }
         });
 
+
+
     }
+    private void saveData(){
+        SharedPreferences sharedPreferences = getSharedPreferences("shared_restavracije", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(restavracije);
+        editor.putString("lista_restavracij", json);
+        editor.apply();
+
+    }
+
+
 }

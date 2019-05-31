@@ -36,6 +36,7 @@ public class Prikaz_restavracij extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prikaz_restavracij);
 
+
 /*
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         Gson gson = new Gson();
@@ -43,6 +44,10 @@ public class Prikaz_restavracij extends AppCompatActivity {
         SharedPreferences.Editor editor = sp.edit();
         editor.putString("restavracijo_save", json);
         editor.commit();
+        */
+
+        loadData();
+/*
 
 
         String getJson = sp.getString("restavracije_save", "");
@@ -101,5 +106,16 @@ public class Prikaz_restavracij extends AppCompatActivity {
     }
 */
 
+    private void loadData(){
+        SharedPreferences sharedPreferences = getSharedPreferences("shared_restavracije", MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString("lista_restavracij", null);
+        Type type = new TypeToken<ArrayList<Restavracija_item>>(){}.getType();
+        restavracije = gson.fromJson(json, type);
+
+        if(restavracije == null){
+            restavracije = new ArrayList<>();
+        }
+    }
 
 }
