@@ -8,6 +8,10 @@ public class Restavracija_item {
         this.ime = ime;
         this.naslov = naslov;
     }
+    public Restavracija_item(){
+        ime = "";
+        naslov = "";
+    }
 
     public String getIme() {
         return ime;

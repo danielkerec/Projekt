@@ -1,13 +1,20 @@
 package com.example.myapplication;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
+import java.lang.reflect.Type;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -19,14 +26,32 @@ public class Prikaz_restavracij extends AppCompatActivity {
     private RecyclerView.LayoutManager mLayoutManager;
 
 
+
+
+    static ArrayList<Restavracija_item> restavracije = new ArrayList<>();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prikaz_restavracij);
 
-        final ArrayList<Restavracija_item> restavracije = new ArrayList<>();
-        restavracije.add(new Restavracija_item("Perunika", "Kranjčeva ulica 14a, 9226 Moravske Toplice"));
-        restavracije.add(new Restavracija_item("Nona", "MB"));
+/*
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        Gson gson = new Gson();
+        String json = gson.toJson(restavracije);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putString("restavracijo_save", json);
+        editor.commit();
+
+
+        String getJson = sp.getString("restavracije_save", "");
+        Type type = new TypeToken<ArrayList<Restavracija_item>>(){}.getType();
+
+        ArrayList<Restavracija_item> novaLista = gson.fromJson(getJson, type);
+
+*/
+
 
         mRecyclerView = findViewById(R.id.recycler_prikaz_restavracij);
         mRecyclerView.setHasFixedSize(true);
