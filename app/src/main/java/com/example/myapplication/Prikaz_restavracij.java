@@ -81,7 +81,14 @@ public class Prikaz_restavracij extends AppCompatActivity {
 
             @Override
             public void onDeleteClick(int position) {
-                Toast.makeText(Prikaz_restavracij.this, "deleted", Toast.LENGTH_LONG).show();
+                restavracije.remove(position);
+                saveData();
+
+                finish();
+                overridePendingTransition(0,0);
+                startActivity(getIntent());
+                overridePendingTransition(0, 0);
+
             }
         });
 
@@ -116,6 +123,16 @@ public class Prikaz_restavracij extends AppCompatActivity {
         if(restavracije == null){
             restavracije = new ArrayList<>();
         }
+    }
+
+    private void saveData(){
+        SharedPreferences sharedPreferences = getSharedPreferences("shared_restavracije", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(restavracije);
+        editor.putString("lista_restavracij", json);
+        editor.apply();
+
     }
 
 }
