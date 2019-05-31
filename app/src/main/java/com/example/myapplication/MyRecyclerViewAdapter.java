@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -33,6 +34,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         public TextView ime;
         public TextView naslov;
         public ImageView delete;
+        public RatingBar rtnBar;
 
         public TextView getIme() {
             return ime;
@@ -47,6 +49,8 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
             ime = itemView.findViewById(R.id.text_prikaz_restavracij_item);
             naslov = itemView.findViewById(R.id.text_prikaz_restavracij_item_naslov);
             delete = itemView.findViewById(R.id.delete_icon);
+            rtnBar = itemView.findViewById(R.id.ratingBar);
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -90,6 +94,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
 
         viewHolder.ime.setText(trenutni.getIme());
         viewHolder.naslov.setText(trenutni.getNaslov());
+        viewHolder.rtnBar.setRating(trenutni.getOcena());
     }
 
     @Override

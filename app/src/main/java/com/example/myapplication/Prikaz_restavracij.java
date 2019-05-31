@@ -2,12 +2,15 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.location.Location;
+import android.location.LocationListener;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.RatingBar;
 import android.widget.Toast;
 import java.lang.reflect.Type;
 
@@ -28,7 +31,12 @@ public class Prikaz_restavracij extends AppCompatActivity {
 
 
 
+
     static ArrayList<Restavracija_item> restavracije = new ArrayList<>();
+    double currentLatitude, currentLongtitude;
+
+
+
 
 
     @Override
@@ -73,8 +81,10 @@ public class Prikaz_restavracij extends AppCompatActivity {
                 Intent intent = new Intent(getBaseContext(), Brisanje_restavracij.class);
                 String name = restavracije.get(position).getIme();
                 String naslov = restavracije.get(position).getNaslov();
+                float rtnBar = restavracije.get(position).getOcena();
                 intent.putExtra("EXTRA_NAME", name);
                 intent.putExtra("EXTRA_NASLOV", naslov);
+                intent.putExtra("OCENA", rtnBar);
                 startActivity(intent);
 
             }

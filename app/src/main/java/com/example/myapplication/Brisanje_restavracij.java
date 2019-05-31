@@ -3,10 +3,12 @@ package com.example.myapplication;
 import android.content.Context;
 import android.location.Address;
 import android.location.Geocoder;
+import android.location.Location;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.EditText;
+import android.widget.RatingBar;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -23,6 +25,7 @@ public class Brisanje_restavracij extends FragmentActivity implements OnMapReady
 
     EditText ime;
     EditText naslov;
+    RatingBar rtnBar;
 
     GoogleMap map;
 
@@ -35,10 +38,14 @@ public class Brisanje_restavracij extends FragmentActivity implements OnMapReady
         setContentView(R.layout.activity_brisanje_restavracij);
         String name = getIntent().getStringExtra("EXTRA_NAME");
         String address = getIntent().getStringExtra("EXTRA_NASLOV");
+        Bundle bundle = getIntent().getExtras();
+        float rating = bundle.getFloat("OCENA");
         ime = (EditText) findViewById(R.id.edit_ime_restavracije);
         ime.setText(name);
         naslov = (EditText) findViewById(R.id.podrobnosti_naslov);
         naslov.setText(address);
+        rtnBar = (RatingBar) findViewById(R.id.podrobnosti_rating);
+        rtnBar.setRating(rating);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -47,8 +54,10 @@ public class Brisanje_restavracij extends FragmentActivity implements OnMapReady
         naslov.setKeyListener(null);
         ime.setKeyListener(null);
 
-    }
 
+
+
+    }
 
 
     @Override
@@ -59,16 +68,19 @@ public class Brisanje_restavracij extends FragmentActivity implements OnMapReady
         List<Address> addresses;
         try{
             addresses = coder.getFromLocationName(naslovzamaps, 5);
-            if(addresses == null){
+            if(addresses != null && addresses.size()>0) {
+
+                Address location = addresses.get(0);
+                double lat = location.getLatitude();
+                double lng = location.getLongitude();
+                LatLng latLng = new LatLng(lat, lng);
+                MarkerOptions markerOptions = new MarkerOptions();
+                markerOptions.position(latLng);
+                googleMap.addMarker(markerOptions);
+                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 17));
+            }else{
+                Toast.makeText(Brisanje_restavracij.this, "Napaka v lokaciji", Toast.LENGTH_LONG).show();
             }
-            Address location = addresses.get(0);
-            double lat = location.getLatitude();
-            double lng = location.getLongitude();
-            LatLng latLng = new LatLng(lat, lng);
-            MarkerOptions markerOptions = new MarkerOptions();
-            markerOptions.position(latLng);
-            googleMap.addMarker(markerOptions);
-            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 17));
         }catch (IOException ex)
         {
             ex.printStackTrace();

@@ -68,7 +68,7 @@ public class MyApplication extends Application {
             {
                 if(sp.contains(TAG_NUM))
                 {
-                    data = (new Restavracija_item(sp.getString(TAG_NAME, ""),sp.getString(TAG_NUM, "")));
+                    //data = (new Restavracija_item(sp.getString(TAG_NAME, ""),sp.getString(TAG_NUM, "")));
                 }
             }
             else

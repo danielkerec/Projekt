@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RatingBar;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -26,6 +27,7 @@ public class Upravljanje_restavracij extends AppCompatActivity {
     Button shrani;
     EditText ime;
     EditText naslov;
+    RatingBar rtnBar;
 
 
 
@@ -44,6 +46,7 @@ public class Upravljanje_restavracij extends AppCompatActivity {
         shrani = (Button) findViewById(R.id.upravljanje_potrdi);
         naslov = (EditText) findViewById(R.id.naslov_restavracije);
         ime = (EditText) findViewById(R.id.ime_restavracije);
+        rtnBar = (RatingBar) findViewById(R.id.dodajanje_rating);
 
 
         shrani.setOnClickListener(new View.OnClickListener() {
@@ -53,13 +56,15 @@ public class Upravljanje_restavracij extends AppCompatActivity {
 
                 naslov.getText().toString();
                 ime.getText().toString();
+                rtnBar.getRating();
+
 
                 if(ime.getText().toString().isEmpty() && naslov.getText().toString().isEmpty())
                 {
                     Toast.makeText(Upravljanje_restavracij.this, "Napaka pri vnosu!", Toast.LENGTH_LONG).show();
                 }
                 else{
-                    restavracije.add(new Restavracija_item(ime.getText().toString(), naslov.getText().toString()));
+                    restavracije.add(new Restavracija_item(ime.getText().toString(), naslov.getText().toString(), rtnBar.getRating()));
 
                     saveData();
 
@@ -82,6 +87,7 @@ public class Upravljanje_restavracij extends AppCompatActivity {
                 Intent intent = new Intent(getBaseContext(), Prikaz_restavracij.class);
                 intent.putExtra("NAME", ime.getText());
                 intent.putExtra("NASLOV", naslov.getText());
+                intent.putExtra("OCENA", rtnBar.getNumStars());
                 startActivity(intent);
 
             }
