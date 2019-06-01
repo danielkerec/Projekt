@@ -8,8 +8,8 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:icon="@drawable/logo"
+        android:label="Moja prehrana"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -19,8 +19,8 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/map_key" />
 
-        <activity android:name=".Brisanje_restavracij" />
-        <activity android:name=".Upravljanje_restavracij" />
+        <activity android:name=".Podrobnosti_restavracij" />
+        <activity android:name=".Dodajanje_restavracij" />
         <activity android:name=".Prikaz_restavracij" />
         <activity android:name=".MainActivity">
             <intent-filter>

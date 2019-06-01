@@ -46,7 +46,7 @@
         android:layout_marginLeft="100dp"
         android:layout_marginTop="8dp"
         android:text="MyApplication"
-        android:textSize="24dp"
+        android:textSize="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_prikaz_restavracij_item" />
 
@@ -65,8 +65,8 @@
 
     <ImageView
         android:id="@+id/delete_icon"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="12dp"
@@ -80,9 +80,9 @@
 
     <ImageView
         android:id="@+id/uredi_ikona"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:src="@drawable/ic_edit"

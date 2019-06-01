@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Upravljanje_restavracij"
+    tools:context=".Dodajanje_restavracij"
     android:background="@color/background">
 
     <android.support.v7.widget.Toolbar
@@ -28,6 +28,18 @@
         app:title="Dodajanje restavracije"
         app:titleTextAppearance="@style/toolbar"
         app:titleTextColor="@color/white" />
+
+    <ImageView
+        android:id="@+id/nazaj"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:src="@drawable/ic_edit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <EditText
         android:id="@+id/ime_restavracije"

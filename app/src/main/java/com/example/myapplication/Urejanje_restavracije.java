@@ -51,7 +51,7 @@ public class Urejanje_restavracije extends AppCompatActivity {
         potrdi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(ime.getText().toString().isEmpty() && naslov.getText().toString().isEmpty())
+                if(ime.getText().toString().isEmpty() || naslov.getText().toString().isEmpty())
                 {
                     Toast.makeText(Urejanje_restavracije.this, "Napaka pri vnosu!", Toast.LENGTH_LONG).show();
                 }else{
