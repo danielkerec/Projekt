@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.support.v4.app.FragmentActivity;
@@ -26,6 +27,7 @@ public class Podrobnosti_restavracij extends FragmentActivity implements OnMapRe
     EditText naslov;
     RatingBar rtnBar;
     ImageView nazaj;
+    ImageView home;
 
     GoogleMap map;
 
@@ -56,6 +58,14 @@ public class Podrobnosti_restavracij extends FragmentActivity implements OnMapRe
 
 
         nazaj = (ImageView) findViewById(R.id.nazaj_podrobnosti);
+        home = (ImageView) findViewById(R.id.podrobnosti_home);
+
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Podrobnosti_restavracij.this, MainActivity.class));
+            }
+        });
 
         nazaj.setOnClickListener(new View.OnClickListener() {
             @Override

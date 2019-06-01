@@ -10,7 +10,7 @@
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar_urejanje_restavracij"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_marginStart="0dp"
         android:layout_marginLeft="0dp"
@@ -25,9 +25,20 @@
         app:layout_constraintVertical_bias="0.0"
         app:navigationIcon="@drawable/ic_info"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:title="Podrobnosti restavracije"
+        app:title="Podrobnosti"
         app:titleTextAppearance="@style/toolbar"
         app:titleTextColor="@color/white" />
+
+    <ImageView
+        android:id="@+id/podrobnosti_home"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="81dp"
+        android:src="@drawable/ic_home"
+        app:layout_constraintEnd_toStartOf="@+id/nazaj_podrobnosti"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/nazaj_podrobnosti"

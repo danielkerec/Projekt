@@ -25,6 +25,7 @@ public class Urejanje_restavracije extends AppCompatActivity {
     RatingBar rtnBar;
     Button potrdi;
     ImageView nazaj;
+    ImageView home;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,7 @@ public class Urejanje_restavracije extends AppCompatActivity {
         rtnBar = (RatingBar) findViewById(R.id.urejanje_dodajanje_rating);
         potrdi = (Button) findViewById(R.id.urejanje_potrdi);
         nazaj = (ImageView) findViewById(R.id.nazaj_urejanje);
+        home = (ImageView) findViewById(R.id.urejanje_home);
 
         String name = getIntent().getStringExtra("EXTRA_NAME");
         String address = getIntent().getStringExtra("EXTRA_NASLOV");
@@ -51,6 +53,13 @@ public class Urejanje_restavracije extends AppCompatActivity {
         ime.setText(name.toString());
         naslov.setText(address.toString());
         rtnBar.setRating(rating);
+
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Urejanje_restavracije.this, MainActivity.class));
+            }
+        });
 
         nazaj.setOnClickListener(new View.OnClickListener() {
             @Override

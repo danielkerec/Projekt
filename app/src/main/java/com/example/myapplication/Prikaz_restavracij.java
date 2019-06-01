@@ -28,6 +28,7 @@ public class Prikaz_restavracij extends AppCompatActivity {
     static ArrayList<Restavracija_item> restavracije = new ArrayList<>();
 
     ImageView nazaj;
+    ImageView home;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,7 @@ public class Prikaz_restavracij extends AppCompatActivity {
         setContentView(R.layout.activity_prikaz_restavracij);
 
         nazaj = (ImageView) findViewById(R.id.nazaj_prikaz_restavracij);
+        home = (ImageView) findViewById(R.id.prikaz_restavracij_home);
 
         loadData();
         sortPoImenu();
@@ -46,6 +48,13 @@ public class Prikaz_restavracij extends AppCompatActivity {
 
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
+
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Prikaz_restavracij.this, MainActivity.class));
+            }
+        });
 
         nazaj.setOnClickListener(new View.OnClickListener() {
             @Override

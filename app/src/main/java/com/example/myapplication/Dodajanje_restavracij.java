@@ -24,9 +24,7 @@ public class Dodajanje_restavracij extends AppCompatActivity {
     EditText naslov;
     RatingBar rtnBar;
     ImageView nazaj;
-
-
-
+    ImageView home;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +41,14 @@ public class Dodajanje_restavracij extends AppCompatActivity {
         ime = (EditText) findViewById(R.id.ime_restavracije);
         rtnBar = (RatingBar) findViewById(R.id.dodajanje_rating);
         nazaj = (ImageView) findViewById(R.id.nazaj_dodajanje);
-
-        nazaj.bringToFront();
+        home = (ImageView) findViewById(R.id.dodajanje_home);
+        
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Dodajanje_restavracij.this, MainActivity.class));
+            }
+        });
 
         nazaj.setOnClickListener(new View.OnClickListener() {
             @Override
