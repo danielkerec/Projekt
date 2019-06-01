@@ -2,11 +2,13 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.Toast;
 
@@ -22,6 +24,7 @@ public class Urejanje_restavracije extends AppCompatActivity {
     EditText naslov;
     RatingBar rtnBar;
     Button potrdi;
+    ImageView nazaj;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +40,7 @@ public class Urejanje_restavracije extends AppCompatActivity {
         naslov = (EditText) findViewById(R.id.urejanje_naslov_restavracije);
         rtnBar = (RatingBar) findViewById(R.id.urejanje_dodajanje_rating);
         potrdi = (Button) findViewById(R.id.urejanje_potrdi);
+        nazaj = (ImageView) findViewById(R.id.nazaj_urejanje);
 
         String name = getIntent().getStringExtra("EXTRA_NAME");
         String address = getIntent().getStringExtra("EXTRA_NASLOV");
@@ -47,6 +51,13 @@ public class Urejanje_restavracije extends AppCompatActivity {
         ime.setText(name.toString());
         naslov.setText(address.toString());
         rtnBar.setRating(rating);
+
+        nazaj.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         potrdi.setOnClickListener(new View.OnClickListener() {
             @Override

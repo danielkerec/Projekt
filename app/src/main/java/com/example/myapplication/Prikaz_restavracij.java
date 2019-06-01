@@ -2,10 +2,12 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.ImageView;
 
 import java.lang.reflect.Type;
@@ -22,21 +24,17 @@ public class Prikaz_restavracij extends AppCompatActivity {
     private MyRecyclerViewAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
-    ImageView sortirajPoImenu;
-
-
 
     static ArrayList<Restavracija_item> restavracije = new ArrayList<>();
-    double currentLatitude, currentLongtitude;
 
-
-
-
+    ImageView nazaj;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prikaz_restavracij);
+
+        nazaj = (ImageView) findViewById(R.id.nazaj_prikaz_restavracij);
 
         loadData();
         sortPoImenu();
@@ -48,6 +46,13 @@ public class Prikaz_restavracij extends AppCompatActivity {
 
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
+
+        nazaj.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
 
         mAdapter.setOnItemClickListener(new MyRecyclerViewAdapter.OnItemClickListener() {

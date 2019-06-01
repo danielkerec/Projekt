@@ -10,25 +10,35 @@
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar_urejanje_restavracij"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="?attr/actionBarSize"
-        android:layout_marginTop="0dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
         android:layout_marginBottom="8dp"
         android:background="@color/background"
-        android:elevation="4dp"
-        app:titleTextAppearance="@style/toolbar"
-        app:title="Podrobnosti restavracije"
-        app:titleTextColor="@color/white"
+        android:clickable="false"
+        android:paddingLeft="5dp"
         android:theme="@style/toolbar_icon"
         app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:navigationIcon="@drawable/ic_info"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        android:paddingLeft="10dp"
+        app:navigationIcon="@drawable/ic_info"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        android:clickable="false"
-        />
+        app:title="Podrobnosti restavracije"
+        app:titleTextAppearance="@style/toolbar"
+        app:titleTextColor="@color/white" />
+
+    <ImageView
+        android:id="@+id/nazaj_podrobnosti"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:src="@drawable/ic_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/edit_ime_restavracije"

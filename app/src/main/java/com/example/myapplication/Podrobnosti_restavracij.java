@@ -4,7 +4,9 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.Toast;
 
@@ -23,6 +25,7 @@ public class Podrobnosti_restavracij extends FragmentActivity implements OnMapRe
     EditText ime;
     EditText naslov;
     RatingBar rtnBar;
+    ImageView nazaj;
 
     GoogleMap map;
 
@@ -52,6 +55,14 @@ public class Podrobnosti_restavracij extends FragmentActivity implements OnMapRe
         ime.setKeyListener(null);
 
 
+        nazaj = (ImageView) findViewById(R.id.nazaj_podrobnosti);
+
+        nazaj.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
 
     }

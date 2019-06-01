@@ -42,7 +42,7 @@ public class Dodajanje_restavracij extends AppCompatActivity {
         naslov = (EditText) findViewById(R.id.naslov_restavracije);
         ime = (EditText) findViewById(R.id.ime_restavracije);
         rtnBar = (RatingBar) findViewById(R.id.dodajanje_rating);
-        nazaj = (ImageView) findViewById(R.id.nazaj);
+        nazaj = (ImageView) findViewById(R.id.nazaj_dodajanje);
 
         nazaj.bringToFront();
 

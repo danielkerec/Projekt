@@ -9,7 +9,7 @@
     </style>
 
     <style name="toolbar" parent="@style/Base.TextAppearance.AppCompat.Title">
-        <item name="android:textSize">25sp</item>
+        <item name="android:textSize">19sp</item>
     </style>
 
     <style name="toolbar_icon">
