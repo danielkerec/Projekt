@@ -41,7 +41,6 @@ public class Upravljanje_restavracij extends AppCompatActivity {
         final SharedPreferences sp = getSharedPreferences("restavracije", MODE_PRIVATE);
 
         list = new ArrayList<>();
-        MyApplication app;
 
         shrani = (Button) findViewById(R.id.upravljanje_potrdi);
         naslov = (EditText) findViewById(R.id.naslov_restavracije);

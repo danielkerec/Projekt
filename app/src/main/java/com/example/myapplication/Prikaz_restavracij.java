@@ -100,6 +100,20 @@ public class Prikaz_restavracij extends AppCompatActivity {
                 overridePendingTransition(0, 0);
 
             }
+
+            @Override
+            public void onUrediClick(int position){
+                Intent intent = new Intent(getBaseContext(), Urejanje_restavracije.class);
+                String name = restavracije.get(position).getIme();
+                String naslov = restavracije.get(position).getNaslov();
+                float rtnBar = restavracije.get(position).getOcena();
+                intent.putExtra("EXTRA_NAME", name);
+                intent.putExtra("EXTRA_NASLOV", naslov);
+                intent.putExtra("OCENA", rtnBar);
+                intent.putExtra("POSITION", position);
+                startActivity(intent);
+            }
+
         });
 
 

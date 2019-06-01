@@ -22,6 +22,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     public interface OnItemClickListener{
         void onItemClick(int position);
         void onDeleteClick(int position);
+        void onUrediClick(int position);
     }
 
     public void setOnItemClickListener(OnItemClickListener listener){
@@ -35,6 +36,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         public TextView naslov;
         public ImageView delete;
         public RatingBar rtnBar;
+        public ImageView uredi;
 
         public TextView getIme() {
             return ime;
@@ -50,6 +52,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
             naslov = itemView.findViewById(R.id.text_prikaz_restavracij_item_naslov);
             delete = itemView.findViewById(R.id.delete_icon);
             rtnBar = itemView.findViewById(R.id.ratingBar);
+            uredi = itemView.findViewById(R.id.uredi_ikona);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -70,6 +73,18 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
                         int position = getAdapterPosition();
                         if(position != RecyclerView.NO_POSITION){
                             listener.onDeleteClick(position);
+                        }
+                    }
+                }
+            });
+
+            uredi.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(listener != null){
+                        int position = getAdapterPosition();
+                        if(position != RecyclerView.NO_POSITION){
+                            listener.onUrediClick(position);
                         }
                     }
                 }
