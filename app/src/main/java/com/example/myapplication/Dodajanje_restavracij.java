@@ -42,7 +42,7 @@ public class Dodajanje_restavracij extends AppCompatActivity {
         rtnBar = (RatingBar) findViewById(R.id.dodajanje_rating);
         nazaj = (ImageView) findViewById(R.id.nazaj_dodajanje);
         home = (ImageView) findViewById(R.id.dodajanje_home);
-        
+
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
